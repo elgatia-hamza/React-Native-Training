@@ -1,18 +1,21 @@
 import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 import colors from '../config/colors';
 import Text from './Text';
 
-function Card({title, subTitle, image}) {
+function Card({title, subTitle, imageUrl, onPress}) {
   return (
-    <View style={styles.container}>
-      <Image source={image} style={styles.image} />
-      <View style={styles.detailsContainer}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subTitle}>{subTitle}</Text>
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.container}>
+        <FastImage source={{uri: imageUrl}} style={styles.image} />
+        <View style={styles.detailsContainer}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.subTitle}>{subTitle}</Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

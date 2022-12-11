@@ -4,7 +4,7 @@ import {GestureHandlerRootView, Swipeable} from 'react-native-gesture-handler';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Text from '../Text';
-import colors from '../config/colors';
+import colors from '../../config/colors';
 
 function ListItem({
   image,

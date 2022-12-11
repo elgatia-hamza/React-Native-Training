@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 import Button from '../components/Button';
+import routes from '../navigation/routes';
 
 const styles = StyleSheet.create({
   background: {
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
 
 const imageUri = require('../assets/home-1.jpg');
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({navigation}) => {
   return (
     <ImageBackground source={imageUri} style={styles.background} blurRadius={3}>
       <View style={styles.logoContainer}>
@@ -42,8 +43,15 @@ const WelcomeScreen = () => {
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <Button title="Loggin" />
-        <Button title="Register" color="secondary" />
+        <Button
+          title="Login"
+          onPress={() => navigation.navigate(routes.LOGIN)}
+        />
+        <Button
+          title="Register"
+          color="secondary"
+          onPress={() => navigation.navigate(routes.RIGISTER)}
+        />
       </View>
     </ImageBackground>
   );

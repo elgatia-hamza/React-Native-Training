@@ -1,18 +1,20 @@
 import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import FastImage from 'react-native-fast-image';
 
-import Text from '../Text';
-import ListItem from '../ListItem';
+import Text from '../components/Text';
+import ListItem from '../components/lists/ListItem';
 
-import colors from '../../config/colors';
+import colors from '../config/colors';
 
-function ListingDetailsScreen(props) {
+function ListingDetailsScreen({route}) {
+  const listing = route.params;
   return (
     <View>
-      <Image style={styles.image} source={require('../assets/burger.jpg')} />
+      <FastImage style={styles.image} source={{uri: listing.images[0].url}} />
       <View style={styles.detailsContainer}>
-        <Text style={styles.title}>Burger meal to eat</Text>
-        <Text style={styles.price}>100$</Text>
+        <Text style={styles.title}>{listing.title}</Text>
+        <Text style={styles.price}>{listing.price}$</Text>
         <View style={styles.userContainer}>
           <ListItem
             image={require('../assets/me.jpg')}
