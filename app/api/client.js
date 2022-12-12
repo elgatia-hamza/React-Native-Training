@@ -4,7 +4,7 @@ import cache from '../utility/cache';
 const {create} = require('apisauce');
 
 const apiClient = create({
-  baseURL: 'http://192.168.88.118:2022/api',
+  baseURL: 'http://192.168.11.114:2022/api',
 });
 
 apiClient.addAsyncRequestTransform(async request => {
